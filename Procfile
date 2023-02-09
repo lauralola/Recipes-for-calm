@@ -1,1 +1,1 @@
-web: gunicorn recipes-for-calm.wsgi
+web: gunicorn recipes_for_calm.wsgi
