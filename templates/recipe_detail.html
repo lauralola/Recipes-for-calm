@@ -31,7 +31,18 @@
                 </p>
                 <div class="row">
                     <div class="col-1">
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'recipe_like' recipe.slug%}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" value="{{recipe.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                            {% else %}
+                            <button type="submit" value="{{recipe.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                            {% endif %}
+                        </form>
+                        {% else %}
                         <strong class="text-secondary"><i class="far fa-heart"></i>{{recipe.number_of_likes}}</strong>
+                        {% endif %}
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
