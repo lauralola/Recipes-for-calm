@@ -48,6 +48,7 @@ class RecipeDetail(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.recipe = recipe
+            messages.add_message(request, messages.INFO, 'Thank you for your comment!')
             comment.save()
         else:
             comment_form = CommentForm()
@@ -70,7 +71,14 @@ class RecipeLike(View):
         if recipe.likes.filter(id=request.user.id).exists():
             recipe.likes.remove(request.user)
         else:
-            recipe.likes.add(request.user)
-            messages.add_message(request, messages.INFO, 'Thank you for your comment!')
-        
+            recipe.likes.add(request.user)    
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+class DeleteComment(View):
+
+    def comment_delete(request, pk):
+        comment = get_object_or_404(Comments, pk=pk)
+        if request.user.id == comment.username_id:
+            Comments.objects.get(pk=pk).delete()
+            messages.error(request, f'Comment Deleted')
+        return redirect('post-detail', pk=pk)
