@@ -9,12 +9,55 @@ body {
     font-family: Open Sans, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #86dbb3;
+    color: #c7ddc7;
 }
 
+/* main index image */
+#mat-outer{
+    height: 600px;
+    width: 100%;
+    position: relative;
+    overflow:hidden;
+    background-color:  rgba(46, 49, 49, .6);
+}
+
+#cover-text, #cover-text h2{
+        color: #c7ddc7;
+        }
+
+#mat{
+    height: 600px;
+    width: 100%;
+    background-image: url('../images/image_bk.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align:center;
+    margin:auto;
+    padding:0;
+}
+
+#cover-text{
+    font-size: 60%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    width:350px;
+    height:165px;
+    padding: 10px;
+    background-color: rgba(46, 49, 49, .6);
+    top: 30px;
+    right: 100px;
+    position:absolute;
+}
+
+.practice {
+    background-color:#c7ddc7; 
+    overflow: auto;
+}
 
 .light-bg {
-    background-color:#86dbb3;
+    background-color:#9fceb8;
 }
 
 .dark-bg {
@@ -22,7 +65,7 @@ body {
 }
 
 .main-bg {
-    background-color: #494c52;
+    background-color: #e1e3e9;
 }
 
 .card {
@@ -39,11 +82,11 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color:#86dbb3;
+    background-color: #353b41;
 }
 
 .author {
-    color: #86dbb3;
+    color: #c7ddc7;
     margin: 4px;
     text-transform: uppercase;
 }
@@ -59,7 +102,7 @@ body {
 
 .masthead-text {
     background-color: #353b41;
-    color: #86dbb3;
+    color:#c7ddc7;
     position: relative;
 }
 
@@ -75,7 +118,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #d4dce4;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -84,12 +127,12 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #080808;
 }
 
 .post-link:hover,
 .page-link {
-    color: #6ad370;
+    color: #73bb76;
 }
 
 .post-title {
@@ -105,6 +148,7 @@ body {
 .btn-signup {
     background-color: #de99e1;
     color: #222427;
+    size-adjust:initial;
 }
 
 .btn-signup:hover,

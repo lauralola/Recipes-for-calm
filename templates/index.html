@@ -5,8 +5,18 @@
 <div class="container-fluid">
     <div class="row">
 
+        <!-- Main Image -->
+        <section id="mat-outer">
+            <div id="mat" role="img" aria-label="Image of woman rolling out yoga mat"></div> 
+        <!-- Image Cover Text -->
+            <div id="cover-text">
+                <h2>Moments of Calm</h2>
+                <h3>Pick a post and take a moment</h3>
+            </div>
+        </section>
+    
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12 mt-3 left practice">
             <div class="row">
                 {% for recipe in recipe_list %}
                 <div class="col-md-4">
@@ -14,8 +24,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in recipe.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="">
+                                <img class="card-img-top" src= "" alt="Collection of meditation stones">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ recipe.featured_image.url }}">
                                 {% endif %}
@@ -23,7 +32,7 @@
                                     <p class="author">Author: {{ recipe.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'recipe_detail' recipe.slug  %}" class="post-link">
+                            <a href="{% url 'recipe_detail' recipe.slug  %}" aria-label="Go to full post" class="post-link">
                                 <h2 class="card-title">{{ recipe.title }}</h2>
                                 <p class="card-text">{{ recipe.excerpt }}</p>
                             </a>
