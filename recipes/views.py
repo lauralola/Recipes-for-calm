@@ -1,9 +1,15 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Recipe
+from .models import *
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.decorators import login_required
+
 
 class RecipeList(generic.ListView):
     model = Recipe
@@ -74,11 +80,21 @@ class RecipeLike(View):
             recipe.likes.add(request.user)    
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
-class DeleteComment(View):
+@login_required
+def delete_comment(request, comment_id):
+    """ Method to delete a comment
+    """
+    comment = get_object_or_404(Comment, id=comment_id)
+    comment.delete()
+    messages.success(request, 'Your comment was deleted successfully')
+    return HttpResponseRedirect(reverse(
+        'recipe_detail', args=[comment.recipe.slug]))
 
-    def comment_delete(request, pk):
-        comment = get_object_or_404(Comments, pk=pk)
-        if request.user.id == comment.username_id:
-            Comments.objects.get(pk=pk).delete()
-            messages.error(request, f'Comment Deleted')
-        return redirect('post-detail', pk=pk)
+class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    """
+    Edit comment
+    """
+    model = Comment
+    template_name = 'edit_comment.html'
+    form_class = CommentForm
+    success_message = 'Your comment was successfully updated'

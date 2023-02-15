@@ -73,6 +73,12 @@
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
+                {% if user.is_authenticated and user.username == comment.name or user.is_superuser %}
+                <a href="{% url 'edit_comment' comment.id %}" class="btn btn-signup btn-lg" aria-label="Go to the Edit Comments Page">Edit</a>
+                <a href="{% url 'delete_comment' comment.pk %}" class="btn btn-signup btn-lg" aria-label="Delete Comment">Delete Comment</a>
+                {% else %}
+                <a  href="{% url 'account_login' %}" class="btn" aria-label="Go to the Login Page">Please login to edit or delete your comments</a>
+                {% endif %}
                 {% endfor%}
             </div>
         </div>
@@ -82,10 +88,6 @@
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval. 
                 </div>
-                <form method="post" action="{% url 'comment_delete' detail.pk %}">
-                    {% csrf_token %}
-                    <input type="submit" name="Delete">
-                </form>
                 {% else %}
                 {% if user.is_authenticated %}
 
