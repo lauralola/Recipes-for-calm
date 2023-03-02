@@ -71,14 +71,20 @@ class RecipeDetail(View):
             },
         )
 
-class RecipeLike(View):
-    def recipe(self, request, slug, *args, **kwargs):
+
+class RecipeLike(LoginRequiredMixin, View):
+    """
+    Like/Unlike posts
+    """
+    def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.likes.filter(id=request.user.id).exists():
             recipe.likes.remove(request.user)
         else:
             recipe.likes.add(request.user)    
+            messages.success(request, 'You have liked this post, thanks!')
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
 
 @login_required
 def delete_comment(request, comment_id):

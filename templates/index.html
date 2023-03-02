@@ -34,6 +34,7 @@
                             </div>
                             <a href="{% url 'recipe_detail' recipe.slug  %}" aria-label="Go to full post" class="post-link">
                                 <h2 class="card-title">{{ recipe.title }}</h2>
+                                <p class="card-text">{{ recipe.categories }}</p>
                                 <p class="card-text">{{ recipe.excerpt }}</p>
                             </a>
                             <hr />

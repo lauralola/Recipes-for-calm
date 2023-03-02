@@ -6,6 +6,13 @@ from django.urls import reverse
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+CATEGORY_CHOICES = (
+    ('Meditation', 'Meditation'),
+    ('Yoga', 'Yoga'),
+    ('Technology', 'Technology'),
+    ('Moment', 'Moment'), 
+)
+
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -13,13 +20,15 @@ class Recipe(models.Model):
         User, on_delete=models.CASCADE, related_name="recipe_posts"
         )
     featured_image = CloudinaryField('image', default='placeholder')
+    categories = models.CharField(max_length=50, choices= CATEGORY_CHOICES, default="Meditation")
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
-        User, related_name='recipe_like', blank=True)
+        User, related_name='recipe_like', default=None, blank=True)
+    like_count = models.BigIntegerField(default='0')
 
     class Meta:
         ordering = ["-created_on"]

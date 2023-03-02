@@ -111,20 +111,6 @@ body {
     overflow: hidden;
 }
 
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #d4dce4;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
-
 .post-link {
     text-decoration: none;
     color: #080808;
@@ -132,7 +118,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #73bb76;
+    color: #de99e1;
 }
 
 .post-title {
@@ -146,18 +132,12 @@ body {
 }
 
 .btn-signup {
-    background-color: #de99e1;
+    background-color: #c7ddc7;
     color: #222427;
 }
 
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color:  #de99e1;
-}
-
 .link {
-    color:  #de99e1;
+    color:  #c7ddc7;
     text-decoration: none;
 }
 
@@ -166,19 +146,5 @@ body {
     color: #445261;
     text-decoration: underline;
 }
-
-.btn-like {
-    color:  #de99e1;
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color:  #de99e1;
-    background: transparent;
-    border: none;
-}
-
 
 

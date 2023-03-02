@@ -110,7 +110,8 @@ GitHub Projects were used to manage development of the project and can be found
 
 ### Home Page
 
-![Home Page](./assets/readme_images/home.png)(./assets/readme_images/home_2.png)
+![Home Page](./assets/readme_images/home.png)
+![Home Page2](./assets/readme_images/home_2.png)
 
 * The hero image welcomes the user with a short message advertising what the website is about. The navigation links are clearly evident along the top and beneath the hero image are small exerpts from posts with a link to see in detail. These are limited to 6 per page and are updated by most recent post<br>
 
@@ -134,19 +135,6 @@ superuser they have access to the buttons for deleting or updating comments.
 ![Edit Comments Page](./assets/readme_images/logged_in_comment.png)
 
 * If a user is logged in they can click a link beside their own comments and they are allowed to add, edit or delete their own comments. The website superuser can delete or update any comments on the blog without having to access the admin panel.
-
-### Search Results Page
-
-![Search Results Page](./assets/readme)
-
-* On the Search Results Page, users can see the recipes found by their search.  When their recipe is located, the user can go to the Post Details Page by clicking on the card result.
-
-
-### Search Results - No Results Found
-
-![Search Results - No Results Found](./assets/readme)
-
-* On the Search Results Page - No Results Found, users will see this message if there is nothing found for the search.
 
 ### Signup Page
 
@@ -172,7 +160,6 @@ superuser they have access to the buttons for deleting or updating comments.
 
 * The navigation bar is present at the top of every page and houses all links to the various other pages.
 * The options to Register or Log in will change to the option to log out once a user has logged in.
-* A search icon is nested in the navbar and once clicked it will open the search box.
 * The navbar is fully responsive, collapsing into a hamburger menu when the screen size becomes smaller.
 
 ### Footer
@@ -221,10 +208,6 @@ superuser they have access to the buttons for deleting or updating comments.
 
 ### Frameworks - Libraries - Programs Used
 
-* [Bootstrap](https://getbootstrap.com/)<br>
-   Was used to style the website, add responsiveness and interactivity
-* [Jquery](https://jquery.com/)<br>
-   All the scripts were written using jquery library
 * [Git](https://git-scm.com/)<br>
    Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub
 * [GitHub](https://github.com/)<br>
@@ -233,8 +216,6 @@ superuser they have access to the buttons for deleting or updating comments.
    Heroku was used to deploy the live project
 * [PostgreSQL](https://www.postgresql.org/)<br>
    Database used through heroku.
-* [VSCode](https://code.visualstudio.com/)<br>
-   VSCode was used to create and edit the website
 * [Lucidchart](https://lucid.app/)<br>
    Lucidchart was used to create the database diagram
 * [PEP8](http://pep8online.com/)<br>
@@ -251,18 +232,105 @@ superuser they have access to the buttons for deleting or updating comments.
    To add the 2 fonts that were used throughout the project
 * [Balsamiq](https://balsamiq.com/)<br>
    To build the wireframes for the project
-* [PIXLR](https://pixlr.com)<br>
-   To convert the images to webp format
-* [CANVA](https://www.canva.com/)<br>
-   To build the logos for the project
-* [Coolors](https://coolors.co/)<br>
-   To build the colour palette of the project
-* [Emailjs](https://www.emailjs.com/)<br>
-   To send emails from the contact form
 
 ### Testing
 
-Testing results [here](TESTING.md)
+# Testing
+
+* Testing was performed throughout the project. With new features added these were tested to ensure they were working as expected and if not debugging took place to try and recify the issue. 
+
+### Python Validation - PEP8
+* Python testing was done using the PEP8 Online to ensure there were no syntax errors in the project. All python files
+were entered into the online checker and no errors were found in any of the custom codes.
+
+### Lighthouse
+Lighthouse was used to test Performance, Best Practices, Accessibility and SEO on Desktop.
+
+##### Desktop Results:
+![Lighthouse Mobile Result](./assets/readme/test/tasty_blog_lighthouse_desktop_results.jpg).
+
+###### Mobile Results:
+![Lighthouse Desktop Result](./assets/readme/test/tasty_blog_lighthouse_mobile_results.jpg).
+
+### HTML Validation
+![HTML Validation Result](./assets/readme/test/tasty_blog_html_validator_results.jpg).
+
+### CSS Validation
+
+![CSS Validation Result](./assets/readme/test/tasty_blog_css_validator_results.jpg).
+![CSS Validation Result](./assets/readme/test/tasty_blog_css_validator_results_warnings.jpg).
+* Custom CSS was validated using W3C Jigsaw validation service. Forty-three warnings were displayed, however, 
+  these are related to Google Fonts and vendor extension prefixes which will not affect the CSS performance.
+
+### JavaScript Validation
+![CSS Validation Result](./assets/readme/test/tasty_blog_js_validator_results.jpg).
+
+### jQuery Validation
+![CSS Validation Result](./assets/readme/test/tasty_blog_jquery_validator_results.jpg).
+
+### Console Results:
+![Console Result](./assets/readme/test/tasty_blog_console_results.jpg).
+* The browser console is clean, no errors are  showing.
+
+## Manual Testing
+### Frontend
+* The Signup, Login and Logout system has no issues and is working accordingly. It shows the right 
+  interactive message to the users.
+* The Profile Page is working properly. It updates the user information and uploads/updates the 
+  user profile image. It shows the interactive message to the user once the update is complete.
+* The user profile image in the navbar and Post Details page has no issues and shows the user image 
+  when it is uploaded by the user on the Profile Page.
+* All the internal links are working and bring the user to the right page on the website.
+* All the external links are working and bring the user to the right social media page by 
+  opening a new browser tab.
+* The Categories Page shows the recipes filtered by category without issues.
+* The drop-down menu in the navbar shows a list of categories on every page of the website.
+* The contact form on the Contact Page is working without any errors.  It sends an email, 
+  to the info@tastyblog, once the user fills in the form and clicks on the send button. 
+  Both interactive messages for email success or failure are also displayed on the screen.
+* The pagination system is working. It adds another page after 6 posts on the page.
+* On the Post Details Page, the Like/unlike functionality is working without issues and shows 
+  the right interactive message to the user when the heart icon is clicked.
+* The comment form has no issues and it submits a new comment once the form is completed by a
+  registered user. 
+  The comment is displayed once the submit button is pressed. The two interactive messages for 
+  this action are working without errors. 
+* The functionality to delete a message, previously sent by the user or by the superuser, is 
+  working without issues. The Bootstrap model is open to asking the user if they want to delete 
+  the message. Once the action is complete, the interactive message is displayed at the top of the page.
+* The functionality to update a message, previously sent by the user or by the superuser, is 
+  working without issues. A new page is open, to update the comment when the button edit is 
+  pressed. Once the action is complete, the interactive message is displayed at the top of the page. 
+* On the Books Page, the CRUD functionality is working without issues. Logged in users can create a new 
+  post such as update or delete their own posts, also any post can be updated or deleted on this page by the Superuser.  
+
+### Backend/Admin Panel
+* I have tested the Admin Panel repeatedly since the start of the project development. All the models are working without issues.  
+  I have created, deleted, and updated data in all models without errors. The models have the behavior expected for what they were built for.
+* Whenever a user comments on a post or submits a book post the Superuser has to approve it before it will be displayed on the website. This functionality is 
+  working without issues.
+* When the author is posting a new recipe all the required fields have to be filled otherwise the author can't submit the post to the database.
+
+### Manual Test Case
+The Test case for this project can be found [here](TEST_CASE.md)
+
+## Bugs
+### Terminal Bug
+#### Comment Model 
+![Comment Model](./assets/readme/extras/comments_model_issue.jpg)
+#### Terminal Error
+![Comment Model - Terminal](./assets/readme/extras/terminal_comment_model_issue.jpg)
+
+* While I was developing the project I tried to add a comment profile Image to the comments model by adding a 
+  foreign key related to the profile model. When I was doing the migrations, the terminal required a default 
+  number for the new foreign key.  I added the number zero however this was not the correct default option. 
+  When I ran the migrations I got an error message on the terminal, saying that "(post_id)=(7) is not present in the table".
+
+### Fixed Bug
+
+* I spent a considerable amount of time trying to rectify this error. I sought advice from my slack community colleagues and researched 
+  an online solution. I then called the Code Institute Tutor Assistance. I was advised, by the tutor, to reset my database on Heroku and 
+  then run migrate on the terminal. I followed the advice and I fixed the issue by resetting my project database.
 
 ## Creating the Django app
 
