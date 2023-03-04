@@ -10,12 +10,17 @@ from django.views.generic import UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required
 
+# View for home page posts
+
 
 class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
+
+# View for main post page in detail
+
 
 class RecipeDetail(View):
 
@@ -71,6 +76,8 @@ class RecipeDetail(View):
             },
         )
 
+# View for liking a post
+
 
 class RecipeLike(LoginRequiredMixin, View):
     """
@@ -85,6 +92,8 @@ class RecipeLike(LoginRequiredMixin, View):
             messages.success(request, 'You have liked this post, thanks!')
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
+# View for deleting logged in user comment
+
 
 @login_required
 def delete_comment(request, comment_id):
@@ -95,6 +104,9 @@ def delete_comment(request, comment_id):
     messages.success(request, 'Your comment was deleted successfully')
     return HttpResponseRedirect(reverse(
         'recipe_detail', args=[comment.recipe.slug]))
+
+# View for editing logged in user comment
+
 
 class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """

@@ -13,6 +13,9 @@ CATEGORY_CHOICES = (
     ('Moment', 'Moment'), 
 )
 
+# Model for a post/recipe
+
+
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -38,6 +41,9 @@ class Recipe(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+
+# Model for a comment
 
 
 class Comment(models.Model):

@@ -87,7 +87,7 @@ body {
 
 .author {
     color: #c7ddc7;
-    margin: 4px;
+    margin-left: 5%;
     text-transform: uppercase;
 }
 
@@ -118,31 +118,26 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #de99e1;
+    color:darkolivegreen;
 }
 
-.post-title {
-    margin-top: 20%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
-.btn-signup {
+.btn {
     background-color: #c7ddc7;
     color: #222427;
 }
 
-.link {
+.recipe-title {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.nav-link {
     color:  #c7ddc7;
     text-decoration: none;
 }
 
-.link:hover,
-.link:active {
+.nav-link:hover,
+.nav-link:active {
     color: #445261;
     text-decoration: underline;
 }
