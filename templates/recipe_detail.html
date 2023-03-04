@@ -47,7 +47,27 @@
                             </button>
                         </form>
                         {% else %}
-                        <span class="btn"><i class="far fa-heart"></i>{{ recipe.number_of_likes }}</span>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#like-login"><i class="far fa-heart"></i>{{ recipe.number_of_likes }}</button>
+                        <!-- Login bootstrap modal-->
+                        <div class="modal" id="like-login" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Login</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>You must login to like a post</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{% url 'account_login' %}" class="btn btn-primary" aria-label="Login">Login</a>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {% endif %}
                     </div>
                     <!-- Comment numbers -->

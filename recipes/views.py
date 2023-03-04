@@ -116,3 +116,14 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'edit_comment.html'
     form_class = CommentForm
     success_message = 'Your comment was successfully updated'
+
+# View for searching
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        recipes = Recipe.objects.filter(content__contains=searched)
+
+        return render(request, 'search.html', {'searched': searched,'recipes': recipes})
+    else:
+        return render(request, 'search.html', {})
