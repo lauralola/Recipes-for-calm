@@ -10,8 +10,7 @@ CATEGORY_CHOICES = (
     ('Meditation', 'Meditation'),
     ('Yoga', 'Yoga'),
     ('Technology', 'Technology'),
-    ('Moment', 'Moment'), 
-)
+    ('Moment', 'Moment'),)
 
 # Model for a post/recipe
 
@@ -23,7 +22,8 @@ class Recipe(models.Model):
         User, on_delete=models.CASCADE, related_name="recipe_posts"
         )
     featured_image = CloudinaryField('image', default='placeholder')
-    categories = models.CharField(max_length=50, choices= CATEGORY_CHOICES, default="Meditation")
+    categories = models.CharField(
+        max_length=50, choices=CATEGORY_CHOICES, default="Meditation")
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -47,7 +47,8 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="comments")
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE,
+                               related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

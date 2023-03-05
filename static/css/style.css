@@ -2,11 +2,11 @@
 
 body {
     background-color:#86dbb3;
-    font-family: Open Sans, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 .brand {
-    font-family: Open Sans, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #c7ddc7;
@@ -140,6 +140,16 @@ body {
 .nav-link:active {
     color: #445261;
     text-decoration: underline;
+}
+
+.like { margin: 0 10px; }
+
+@media screen and (max-width:400px) {
+    #cover-text{
+        right:0;
+        width: 80%;
+        font-size: small;
+    }
 }
 
 

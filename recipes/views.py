@@ -51,7 +51,6 @@ class RecipeDetail(View):
         liked = False
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
-        
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -59,7 +58,8 @@ class RecipeDetail(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.recipe = recipe
-            messages.add_message(request, messages.INFO, 'Thank you for your comment!')
+            messages.add_message(request,
+                                 messages.INFO, 'Thank you for your comment!')
             comment.save()
         else:
             comment_form = CommentForm()
@@ -87,8 +87,9 @@ class RecipeLike(LoginRequiredMixin, View):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.likes.filter(id=request.user.id).exists():
             recipe.likes.remove(request.user)
+            messages.success(request, 'You have unliked this post, thanks!')
         else:
-            recipe.likes.add(request.user)    
+            recipe.likes.add(request.user)
             messages.success(request, 'You have liked this post, thanks!')
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
@@ -119,11 +120,13 @@ class EditComment(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 # View for searching
 
+
 def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
         recipes = Recipe.objects.filter(content__contains=searched)
 
-        return render(request, 'search.html', {'searched': searched,'recipes': recipes})
+        return render(request, 'search.html',
+                      {'searched': searched, 'recipes': recipes})
     else:
         return render(request, 'search.html', {})

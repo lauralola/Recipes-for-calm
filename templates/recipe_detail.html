@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
@@ -38,7 +39,7 @@
                 </p>
                 <!-- Like button functionality -->
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-1 like">
                         {% if user.is_authenticated %}
                         <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
                             {% csrf_token %}
@@ -71,7 +72,7 @@
                         {% endif %}
                     </div>
                     <!-- Comment numbers -->
-                    <div class="col-1">
+                    <div class="col-1 like">
                         {% with comments.count as total_comments %}
                         <strong class="btn"><i class="far fa-comments"></i>
                             {{ total_comments }}</strong>
@@ -126,7 +127,11 @@
                     </div>
                 </div>
                 {% else %}
+                {% if user.is_authenticated and user.username != comment.name %}
+                <br>
+                {% else %}
                 <a  href="{% url 'account_login' %}" class="btn" aria-label="Go to the Login Page">Please login to edit or delete your comments</a>
+                {% endif %}
                 {% endif %}
                 {% endfor%}
             </div>

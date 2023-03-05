@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 
 import dj_database_url
-from django.contrib.messages  import constants as messages
+from django.contrib.messages import constants as messages
 
 if os.path.isfile('env.py'):
     import env
@@ -33,7 +33,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-	
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['recipes-for-calm.herokuapp.com', 'localhost']
