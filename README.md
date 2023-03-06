@@ -30,6 +30,7 @@ Recipes for Calm is my 4th project with Code Institute and is a Full Stack websi
     - [Logout Page](#logout-page)
     - [Navbar](#navbar)
     - [Footer](#footer)
+    - [Future Features](#future-features)
   - [Admin Panel/Superuser](#admin-panelsuperuser)
   - [Technologies Used](#technologies-used)
     - [Languages Used](#languages-used)
@@ -39,8 +40,6 @@ Recipes for Calm is my 4th project with Code Institute and is a Full Stack websi
   - [Creating the Django app](#creating-the-django-app)
   - [Deployment of This Project](#deployment-of-this-project)
   - [Final Deployment](#final-deployment)
-  - [Forking This Project](#forking-this-project)
-  - [Cloning This Project](#cloning-this-project)
   - [Credits](#credits)
     - [Content](#content)
     - [Information Sources / Resources](#information-sources--resources)
@@ -63,7 +62,7 @@ Recipes for Calm is my 4th project with Code Institute and is a Full Stack websi
 * As logged in website user, I can:
 
 1. Like/unlike posts to indicate which I enjoyed.
-2. Comment on posts to join coversation around the post.
+2. Comment on posts to join conversation around the post.
 3. Delete and edit my own comments.
 4. Logout from the website.
 
@@ -84,7 +83,7 @@ GitHub Projects were used to manage development of the project and can be found
 
 * To provide users with a easy to use, well designed and attractive website with content for creating calm.
 * To provide a clear purpose evident from first use of the website.
-* To provide different leveles of access and interactions with the website based on permissions.
+* To provide different levels of access and interactions with the website based on permissions.
 * To provide ways for users to interact with the content through likes and comments.
 
 ## Design
@@ -106,7 +105,6 @@ GitHub Projects were used to manage development of the project and can be found
 * Wireframe models were created using LucidSpark <br>
 ![Wireframe](./assets/readme_images/wireframe.png)<br>
 
-
 ## Database Diagram
 
 * Wireframe models were created using LucidChart
@@ -121,20 +119,17 @@ GitHub Projects were used to manage development of the project and can be found
 
 * The hero image welcomes the user with a short message advertising what the website is about. The navigation links are clearly evident along the top and beneath the hero image are small excerpts from posts with a link to see in detail. These are limited to 6 per page and are updated by most recent post<br>
 
-
 ### Post Detail Page
 
 ![Post Detail Page](./assets/readme_images/post_detail.png)
 
 * On selecting a post to view, users are brought to a page with the full post for them to read. The image linked with the post is displayed at the top of the page, along with the author and date of publication.  Here users can comment and like and unlike posts once they are logged in. The number of comments and likes is also shown<br>
 
-
 ### Post Detail Page - Comments
 
 ![Post Detail Page - Comments](./assets/readme_images/comment.png) 
 
-* At the bottom of detailed post page, users can read the comments posted by other users. If the user is logged in or is a 
-superuser they have access to the buttons for deleting or updating comments.
+* At the bottom of detailed post page, users can read the comments posted by other users. If the user is logged in or is a superuser they have access to the buttons for deleting or updating comments. If the comment field is left blank and submit clicked the user is prompted to fill in the field. 
 
 ### Edit Comments Page
 
@@ -164,7 +159,7 @@ superuser they have access to the buttons for deleting or updating comments.
 
 ![Logout Page](./assets/readme_images/sign_out.png)
 
-* Users confirm that they wish to logout and recieve a message pop up to confirm logout.
+* Users confirm that they wish to logout and receive a message pop up to confirm logout.
 
 ### Navbar
 
@@ -178,6 +173,10 @@ superuser they have access to the buttons for deleting or updating comments.
 
 ![Footer](./assets/readme_images/footer.png)
 * The footer contains links to all social media for the page. 
+
+### Future Features
+
+* Another feature in the Agile planning was to incorporate a class booking app for online classes as part of the site. This was not implemented due to time constraints. 
 
 ## Admin Panel/Superuser
 ![Admin Panel](./assets/readme_images/admin.png)
@@ -225,7 +224,7 @@ superuser they have access to the buttons for deleting or updating comments.
 
 # Testing
 
-* Testing was performed throughout the project. With new features added these were tested to ensure they were working as expected and if not debugging took place to try and recify the issue. 
+* Testing was performed throughout the project. With new features added these were tested to ensure they were working as expected and if not debugging took place to try and rectify the issue. 
 
 ### Python Validation 
 * Python testing was done using the CodeInstitue Heroku PEP8 validator to ensure there were no syntax errors in the project. All python files were entered into the online checker and no errors were found in any of the custom codes.
@@ -259,20 +258,18 @@ There is very little JavaScript included in this project but functionality for m
 ![Test Result](./assets/readme_images/testing.png).
 
 ### Frontend
-* The Signup, Login and Logout system is workinh and shows the correct message to the users.
+* The Signup, Login and Logout system is working and shows the correct message to the users.
 * Internal links are working and bring the user to the correct page on the website.
 * External links are working and bring the user to the correct social media page in a new tab.
 * The pagination system is working after 6 posts on the page a new page is added.
 * Like/unlike functionality is working and shows message to the user when they have liked or unliked.
 * Comment form submits a new comment for approval by admin once the form is completed by registered user. A message confirms this to user. It is displayed once approved.
-* CRUD user functionality to edit and delete their own comments if working. The Bootstrap model opens to asking the user if they want to delete 
-  the message. Once confirmed, the comment is deleted and an interactive message is displayed at the top of the page. To edit comments, a new page opens to edit and an interactive message is displayed at the top of the page when submitted.
+* CRUD user functionality to edit and delete their own comments is working. The Bootstrap model opens to asking the user if they want to delete the message. Once confirmed, the comment is deleted and an interactive message is displayed at the top of the page. To edit comments, a new page opens to edit and an interactive message is displayed at the top of the page when submitted.
 
 ### Backend/Admin Panel
 * All the models working to create, delete and update and perform as expected.  
 * Admin approval of comments is working.
 * When posting a new recipe, required fields must be filled to submit the post to the database.
-
 
 ## Bugs
 * Several bug were fixed throughout the testing process. There was an issue with the like functionality which was determined to be an error in the naming of the function. Buttons were displaying with an overlap on small screen sizes which was due to an error with the bootstrap used. 
@@ -281,8 +278,8 @@ There is very little JavaScript included in this project but functionality for m
 
 1. Go to the Code Institute Gitpod Full Template [Template](https://github.com/Code-Institute-Org/gitpod-full-template)
 2. Click on Use This Template and click Gitpod
-3. Install Django and gunicorn: `pip3 install django gunicorn`
-4. Install supporting database libraries dj_database_url and psycopg2 library: `pip3 install dj_database_url psycopg2`
+3. Install Django and gunicorn: `pip3 install 'django<4' gunicorn`
+4. Install supporting database libraries dj_database_url and psycopg2 library: `pip3 install dj_database_url==0.5.0 psycopg2`
 5. Create file for requirements: in the terminal window type `pip freeze --local > requirements.txt`
 6. Create project: in the terminal window type django-admin startproject your_project_name
 7. Create app: in the terminal window type python3 manage.py startapp your_app_name
@@ -290,46 +287,31 @@ There is very little JavaScript included in this project but functionality for m
 9. Migrate changes: in the terminal window type python3 manage.py migrate
 10. Run the server to test if the app is installed, in the terminal window type python3 manage.py runserver
 11. If the app has been installed correctly the window will display The install worked successfully! Congratulations!
-12. Create a Procfile `web: gunicorn your_project_name.wsgi`
-13. In this project the summernote editor was used so for this to work in Heroku add: `X_FRAME_OPTIONS = SAMEORIGIN `to
-   settings.py.
 
 ## Deployment of This Project
 
 1. Log in to [Heroku](https://id.heroku.com) and select New in the top right corner and Create New App from dropdown. 
 2. Create app name and select region and create app
-3. Click Reveal Config Vars and add a new record with SECRET_KEY, a new record with the `CLOUDINARY_URL` a new record with the `DISABLE_COLLECTSTATIC = 1`, a new record with the DATABASE_URL, PORT set to 8000 and PostGresSQL settings.
-4. Select Github as the deployment method and confirm you want to connect to GitHub
-5. Search for the repository name and click the connect button
-6. Scroll to the bottom of the deploy page and select the preferred deployment type
-7. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github
+3. Create a database on ElephantSQL by logging in and creating a new instance. Give your plan a name and select the Tiny Turtle (Free) plan. Select region and datacentre, click review and create instance. 
+4. Return to the ElephantSQL dashboard and click on the database instance name for this project. In the URL section, click the copy icon to copy the database URL. 
+5. In your project workspace, create a file called env.py and ensure this file is in your gitignore.
+6. Add env.py file to your settings.py. Further down your settings.py file remove the insecure secret key provided by Django and replace with `SECRET_KEY = os.environ.get('SECRET_KEY')`. Replace database in settings with `DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}`. Add secret key and database information to env.py file and migrate changes. 
+7. Create a cloudinary account and copy your API authentication information. Add this to your env.py file under `CLOUDINARY_URL`. Add cloudinary libraries to settings.py file. Also add `STATICFILES_STORAGE` with `Cloudinary_storage.storage.StaticHashedCloudinaryStorage` and use `os.path.join` to connect our base directory to static and set up static route. Do the same for media URL with `Cloudinary_storage.storage.MediaCloudinaryStorage`.
+8. At the top of settings.py and under the base directory add `TEMPLATES_DIR =  os.path.join(BASE_DIR, 'templates')` and change the D-I-R-S key in template setting to point towards the new templates directory variable. 
+9. Add Heroku host name into allowed hosts in settings.py file. Also add localhost. 
+10. Create a Procfile `web: gunicorn your_project_name.wsgi`
+11. Go back to Heroku and open settings tab. Reveal Config Vars and add a new record with SECRET_KEY, a new record with the `CLOUDINARY_URL` a new record with the `DISABLE_COLLECTSTATIC = 1`, a new record with the DATABASE_URL, PORT set to 8000.
+12. Select Github as the deployment method and confirm you want to connect to GitHub
+13. Search for the repository name and click the connect button
+14. Scroll to the bottom of the deploy page and select the preferred deployment type
+15. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github
 
 ## Final Deployment 
 
 1. Create a runtime.txt `python-3.8.13`
 2. When development is complete change the debug setting to: `DEBUG = False` in settings.py
-3. In Heroku settings, delete the config vars for `DISABLE_COLLECTSTATIC = 1`
-
-## Forking This Project
-
-* Fork this project by following the steps:
-
-1. Open [GitHub](https://github.com/PedroCristo/portfolio_project_4)
-2. Find the 'Fork' button at the top right of the page
-3. Once you click the button the fork will be in your repository
-
-## Cloning This Project
-
-* Clone this project by following the steps:
-
-1. Open [GitHub](https://github.com/PedroCristo/portfolio_project_4)
-2. You will be provided with three options to choose from, HTTPS, SSH or GitHub CLI, click the clipboard icon in order
-to copy the URL
-3. Once you click the button the fork will be in your repository
-4. Open a new terminal
-5. Change the current working directory to the location that you want the cloned directory
-6. Type 'git clone' and paste the URL copied in step 3
-7. Press 'Enter' and the project is cloned
+3. In this project the summernote editor was used so for this to work in Heroku add: `X_FRAME_OPTIONS = SAMEORIGIN `to settings.py.
+4. In Heroku settings, delete the config vars for `DISABLE_COLLECTSTATIC = 1`
 
 ## Credits
 
