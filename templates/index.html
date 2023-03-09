@@ -23,19 +23,19 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in recipe.featured_image.url %}
+                                {% if "placeholder" in recipe.hero_image.url %}
                                 <img class="card-img-top" src= "../static/images/image_bk.jpg" alt="Collection of meditation stones">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ recipe.featured_image.url }}" alt="Image for post">
+                                <img class="card-img-top" src=" {{ recipe.hero_image.url }}" alt="Image for post">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ recipe.author }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'recipe_detail' recipe.slug  %}" aria-label="Go to full post" class="post-link">
-                                <h2 class="card-title">{{ recipe.title }}</h2>
+                                <h2 class="card-title">{{ recipe.header }}</h2>
                                 <p class="card-text">{{ recipe.categories }}</p>
-                                <p class="card-text">{{ recipe.excerpt }}</p>
+                                <p class="card-text">{{ recipe.summary }}</p>
                             </a>
                             <hr>
                             <p class="card-text h6">{{ recipe.created_on}} <i class="far fa-heart"></i>

@@ -11,14 +11,14 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <h1 class="recipe-title">{{recipe.title}}</h1>
+                <h1 class="recipe-title">{{recipe.header}}</h1>
                 <p class="author"> {{recipe.author}}|{{recipe.created_on}}</p>
             </div>
             <div class="d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in recipe.featured_image.url %}
+                {% if "placeholder" in recipe.hero_image.url %}
                 <img src="../static/images/image_bk.jpg" alt= "Collection of meditation stones" width="100%">
                 {% else %}
-                <img src="{{recipe.featured_image.url}}" alt= 'Featured image for post' width="100%">
+                <img src="{{recipe.hero_image.url}}" alt= 'Featured image for post' width="100%">
                 {% endif %}
             </div>
         </div>

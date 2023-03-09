@@ -16,15 +16,15 @@ CATEGORY_CHOICES = (
 
 
 class Recipe(models.Model):
-    title = models.CharField(max_length=200, unique=True)
+    header = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="recipe_posts"
         )
-    featured_image = CloudinaryField('image', default='placeholder')
+    hero_image = CloudinaryField('image', default='placeholder')
     categories = models.CharField(
         max_length=50, choices=CATEGORY_CHOICES, default="Meditation")
-    excerpt = models.TextField(blank=True)
+    summary = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -37,7 +37,7 @@ class Recipe(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return self.title
+        return self.header
 
     def number_of_likes(self):
         return self.likes.count()
