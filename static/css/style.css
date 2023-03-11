@@ -28,7 +28,7 @@ body {
 #mat{
     height: 600px;
     width: 100%;
-    background-image: url('../images/image_bk.jpg');
+    background-image: url('https://res.cloudinary.com/dv4q4bymn/image/upload/v1678522716/static/images/image_bk.c83a4a80bf3b.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
